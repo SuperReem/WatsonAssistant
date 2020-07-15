@@ -1,0 +1,337 @@
+{
+  "intents": [
+    {
+      "intent": "Stop",
+      "examples": [
+        {
+          "text": "stop Mr.Robot"
+        },
+        {
+          "text": "Mr.Robot can you stop"
+        },
+        {
+          "text": "Stop"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Moving",
+      "examples": [
+        {
+          "text": "Can you move to the Right"
+        },
+        {
+          "text": "Can you move to the left"
+        },
+        {
+          "text": "Can you move backwards"
+        },
+        {
+          "text": "Can you move forwards"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greeting",
+      "examples": [
+        {
+          "text": "hello"
+        },
+        {
+          "text": "Hi"
+        },
+        {
+          "text": "hey"
+        },
+        {
+          "text": "welcome"
+        },
+        {
+          "text": "hey Mr.Robot"
+        },
+        {
+          "text": "hi Mr.Robot"
+        },
+        {
+          "text": "hello Mr.Robot"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Thanks",
+      "examples": [
+        {
+          "text": "Thank u"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "Thank u Mr.Robot"
+        },
+        {
+          "text": "Thanks Mr.Robot"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "AskingForGoing",
+      "examples": [
+        {
+          "text": "Mr.Robot can you go to patient room number 2 please"
+        },
+        {
+          "text": "Mr.Robot can you go to patient room number 1 please"
+        },
+        {
+          "text": "can you go to patient room number 3 please"
+        },
+        {
+          "text": "can you go to patient room number 2 please"
+        },
+        {
+          "text": "can you go to patient room number 1 please"
+        },
+        {
+          "text": "Mr.Robot can you go to patient room number 3 please"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Bye",
+      "examples": [
+        {
+          "text": "Good bye Mr.Robot"
+        },
+        {
+          "text": "Bye"
+        },
+        {
+          "text": "Good bye"
+        },
+        {
+          "text": "bye Mr.Robot"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Thanks",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ur welcome :)"
+              },
+              {
+                "text": "Any Time :)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Thanks",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1594758089510",
+      "previous_sibling": "node_4_1594750461871"
+    },
+    {
+      "type": "standard",
+      "title": "Greeting",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Greeting",
+      "dialog_node": "node_2_1594747689035",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Bye",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good bye :) 👋🏻"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Bye",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_6_1594847498655",
+      "previous_sibling": "node_5_1594758089510"
+    },
+    {
+      "type": "standard",
+      "title": "Stop",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okey :)  Stopped"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Stop",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_4_1594750461871",
+      "previous_sibling": "node_10_1594750045946"
+    },
+    {
+      "type": "standard",
+      "title": "Moving",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sure :)  Moving...."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Moving",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_10_1594750045946",
+      "previous_sibling": "node_8_1594749276847"
+    },
+    {
+      "type": "standard",
+      "title": "Asking for going to specific place",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sure! "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#AskingForGoing",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_8_1594749276847",
+      "previous_sibling": "node_2_1594747689035"
+    },
+    {
+      "type": "standard",
+      "title": "anything_else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_6_1594847498655",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, Mr.Robot is here to help you :)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_2_1594747689035"
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
